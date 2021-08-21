@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+
+  laminas:
+    build: ./Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www
+    links:
+      - mysql
+    networks:
+      - app
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    volumes:
+      - ./backup:/var/backup
+      - ./mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - app
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    ports:
+      - "8080:80"
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
