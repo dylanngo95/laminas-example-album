@@ -19,7 +19,7 @@ class AlbumController extends AbstractActionController
         $this->table = $table;
     }
 
-    public function indexAction()
+    public function indexAction(): ViewModel
     {
         return new ViewModel([
             'albums' => $this->table->fetchAll(),

@@ -8,7 +8,6 @@ use Album\Controller\AlbumController;
 use Album\Model\Album;
 use Album\Model\AlbumTable;
 use Album\Model\AlbumTableGateway;
-use Laminas\Db\Adapter\Adapter;
 use Laminas\Db\Adapter\AdapterInterface;
 use Laminas\Db\ResultSet\ResultSet;
 use Laminas\Db\TableGateway\TableGateway;
