@@ -17,6 +17,6 @@ return [
         'dsn' => 'mysql:host=mysql;dbname=laminas;charset=utf8',
         'driver' => 'Pdo',
         'username' => 'magento',
-        'password' => '123456'
+        'password' => '123456',
     ],
 ];

@@ -10,6 +10,7 @@ use Album\Controller\AlbumController;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 
 return [
+    'Laminas\I18n',
     'Laminas\Form',
     'Laminas\Hydrator',
     'Laminas\InputFilter',
